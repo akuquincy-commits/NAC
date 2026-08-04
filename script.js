@@ -1,10 +1,15 @@
 const home = document.getElementById("home")
+const services = document.getElementById("services")
+const testimonials = document.getElementById("testimonials")
+const contact = document.getElementById("contact")
+const projects = document.getElementById("projects")
 const backBtn = document.getElementById("backBtn")
 const navBar = document.getElementById("navBar")
 const about = document.getElementById("about")
 const showNavBtn = document.getElementById("showNavBtn")
 const hero = document.getElementById("hero")
 const backBtnsArea = document.getElementById("backBtnsArea")
+
 
 
 showNavBtn.style.display = "none"
@@ -41,8 +46,15 @@ const observer = new IntersectionObserver((items) => {
         } 
     })
 }, {
-    threshold: 0.3
+    threshold: 0.5
+    
 })
+
+const cardService1 = document.querySelectorAll(".card")
+cardService1.forEach(presentItem => observer.observe(presentItem))
+
+
+
 
 const presentp = document.querySelectorAll(".homePara")
 presentp.forEach(presentItem => observer.observe(presentItem))
@@ -59,11 +71,32 @@ presentaboutText.forEach(presentItem => observer.observe(presentItem))
 const presentaboutImg = document.querySelectorAll(".imageContainer #aboutImage")
 presentaboutImg.forEach(presentItem => observer.observe(presentItem))
 
-//work on this later we want to highlight the btn when the page is in display
-// const observer2 = new IntersectionObserver((pages) =>{
-//     // console.log(pages[0].target)
-//     if()
-// },{})
 
-// const element = document.getElementById("home")
-// observer2.observe(element)
+const observer2 = new IntersectionObserver((page)=>{
+   const currentId = page[0].target.id 
+   const links = Array.from(document.querySelectorAll(".links"))
+   const elementToHighlight = links.find(el => el.href.includes(currentId))
+    if(page[0].isIntersecting){
+    elementToHighlight.style.backgroundColor = "#e7ba6071"
+  }else{
+    elementToHighlight.style.backgroundColor = ""
+  }
+},
+  {
+    threshold: 0.5
+  }  
+)
+
+observer2.observe(home)
+observer2.observe(services)
+observer2.observe(testimonials)
+observer2.observe(contact)
+observer2.observe(projects)
+observer2.observe(about)
+
+
+
+
+
+
+    
