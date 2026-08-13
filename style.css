@@ -133,6 +133,7 @@
     width: 84vw;
     margin-left: 15vw;
     scroll-behavior: smooth; 
+    overflow-y: scroll;
 }
 .pages{
     height: 100vh;
@@ -248,10 +249,11 @@
    background-color: var(--background);
    padding: 20px;
    overflow: hidden;
+   height: 100vh;
 }
 .aboutTextContainer{
-    height: 100%;
-    width: 50%;
+    height: 100vh;
+    width: 50vw;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -269,8 +271,8 @@
     transform: translateY(0px);
 }
 .imageContainer{
-    height: 100%;
-    width: 50%;
+    height: 100vh;
+    width: 50vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -529,7 +531,7 @@
     border: 1px solid var(--border);
     border-radius: 12px;
     flex-shrink: 0;
-    width: 450px;
+    width: min(450px, 70vw);
     height: 75%;
 }
 .clientInfo{
@@ -708,12 +710,11 @@
     }
 
     #home{
-    
     background-image: url(NATCOlogo.png);
     background-repeat: no-repeat;
     background-size: 70%;
     background-attachment: fixed;
-    height: auto;
+    height: 100vh;
     width: 100vw;
     margin-left: 15vw;
     
@@ -722,6 +723,7 @@
         position: fixed;
         top: 0;
         left: 51vw;
+        font-size: 1.5rem;
     }
     .homeContent{
         padding: 25px;
@@ -744,9 +746,14 @@
         width: 100vw;
         height: 100vh;
     }
+    #about{
+    overflow: hidden;
+    width: 100vw;
+   height: 100vh;
+   }
     .aboutTextContainer{
         width: 100vw;
-        height: 100vh;
+        height: 100%;
     }
     .imageContainer{
         display: none;
@@ -799,6 +806,33 @@
     border: 1px solid var(--border);
      box-shadow: 0px 10px 35px rgba(0, 0, 0, 0.15);
     transition: 0.2s ease;
+   }
+   .contactDetails h1{
+    width: 100%;
+    height: auto;
+    text-align: left;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+.projectCards{
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(1, 65vw);
+    grid-template-rows: repeat(6, 50vh);
+    gap: 20px;
+    height: 75%;
+    overflow: scroll;
+    margin-top: 10px;
+    scroll-behavior: smooth;
+}
+#mAndv{
+    display: none;
+}
+.aboutExtraInfo{
+   display: flex;
+   flex-wrap: wrap;
+   width: 80vw;
+   height: auto;
 }
 }
 
